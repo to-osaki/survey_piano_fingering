@@ -22,13 +22,21 @@ https://cm.kawai.jp/products/pmdp/
 運指レッスン フィンガリ‪ン‬
 https://apps.apple.com/jp/app/%E9%81%8B%E6%8C%87%E3%83%AC%E3%83%83%E3%82%B9%E3%83%B3-%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%AA%E3%83%B3/id942390847
 
+## 楽譜
+
+https://www.amazon.co.jp/dp/4276434130
+
+https://www.amazon.co.jp/dp/4401029089
+
+https://www.amazon.co.jp/dp/4276401593
+
 ## アニメーション生成
 
 https://www.vice.com/en/article/v7m8xd/watch-these-ai-hands-attempt-to-play-an-unplayable-song-on-the-piano
 
-## アニメーションの記録、再生
-
 https://qiita.com/yamatohkd/items/0f5b9b031ec0976d872a
+
+## 録画
 
 https://sairie.com/movie-sp/
 
@@ -53,5 +61,17 @@ https://github.com/mpg/pypiano-fingers
 PIG Dataset
 https://beam.kisarazu.ac.jp/~saito/research/PianoFingeringDataset/index-ja.html
 
+> PIG データセッ
+トは西洋クラシック作曲家のピアノ曲から成り，ピアノ演
+奏者により付けられた運指が含まれている．現在，150 曲
+の楽曲が収められており，各楽曲には一つあるいは複数の
+運指が与えられている．なるべく多様なスタイルの音楽を
+含めるため，少量の楽曲の全曲に対して運指を付けるので
+はなく，多くの曲の一部分に対して運指のラベル付けを
+してある．運指付けされた部分の典型的な長さは，楽譜 1
+ページ程度で，小節数は約 20，音符数は約 300 である．
+
 MAESTRO
 http://createwith.ai/dataset/20181106/1358
+
+> インターネット上のピアノ演奏コンペティション International Piano-e-Competition でのピアニストの演奏を集めることで作成されており...演奏数1,184，曲数430 ものデータが用意されており，ピアノ演奏のデータセットとしては現時点で最大規模のデータセット
