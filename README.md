@@ -10,20 +10,6 @@
     - 曲の時代背景（古典運指など）
     - ミニ鍵盤など鍵盤の大きさによる違い
 
-## 運指
-
-### 古典運指
-
-http://www.scholabachen.com/usui_invention.html
-> 今日一般に用いられている運指法は、音階が自然に流れるようになることをモットーに発想されたものであり、これこそが楽曲をより早く、確実に再現するための第一歩であると考えられている。
-> 今日のものと16世紀の運指法との間に見られるこの違いはどこから来ているのかを調べると、その相違は各時代に固有の考えに基づいているものであることが分かる。つまり16世紀のそれは「良い音」に対して「良い指」を、「悪い音」に対して「悪い指」を用いる、という考えである。
-
-https://ontomo-mag.com/article/interview/minako-tsukatani-goldberg/
-> オルガンにはオルガンの奏法、演奏習慣というものがあり、ピアノでそれをやると、まったくうまくいきません。ところが、トイピアノにはバッハの時代の古典運指法が合っているんです。
-
-http://lepetitclavecin.hatenablog.com/entry/2017/02/16/190000
-> バッハをメインに弾くなら、上はレまであれば問題ないと思います。
-
 ## ソフトウェア
 
 ピアノマスターdp
@@ -85,3 +71,13 @@ MAESTRO
 http://createwith.ai/dataset/20181106/1358
 
 > インターネット上のピアノ演奏コンペティション International Piano-e-Competition でのピアニストの演奏を集めることで作成されており...演奏数1,184，曲数430 ものデータが用意されており，ピアノ演奏のデータセットとしては現時点で最大規模のデータセット
+
+## mxl
+
+http://roomba.hatenablog.com/entry/2016/02/03/150354
+
+## music21
+
+https://ameblo.jp/delphinus1024/entry-12365205195.html
+https://miso-soup3.hateblo.jp/entry/2018/12/20/223705
+https://naraba.hatenablog.com/entry/20121201/p1
