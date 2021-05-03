@@ -47,3 +47,8 @@ https://iss.ndl.go.jp/books/R000000004-I023418205-00
 ・・・
 さらに，弾きやすさだけではなく，音の繋がりなどの演奏の表
 現方法も考慮した運指決定法を提案することが課題である．
+
+## 参考
+
+Finding optimal piano fingering
+2000

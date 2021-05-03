@@ -10,6 +10,12 @@
 - 曲の時代背景（古典運指など）
 - ミニ鍵盤など鍵盤の大きさによる違い
 
+## pianoplayer
+
+pianoplayerでの生成例
+
+![pianoplayer_output_bach_invention4](./img/pianoplayer_output_bach_invention4.png)
+
 ## Reference repositories
 
 https://github.com/serenado/PianoFingeringProject
@@ -38,6 +44,8 @@ https://github.com/mpg/pypiano-fingers
 
 https://github.com/blakewest/performer
 
+https://github.com/dvdrndlph/pydactyl
+
 ## Datasets
 
 PIG Dataset
@@ -57,11 +65,6 @@ MAESTRO
 http://createwith.ai/dataset/20181106/1358
 
 > インターネット上のピアノ演奏コンペティション International Piano-e-Competition でのピアニストの演奏を集めることで作成されており...演奏数1,184，曲数430 ものデータが用意されており，ピアノ演奏のデータセットとしては現時点で最大規模のデータセット
-
-## pianoplayer
-
-生成例
-![pianoplayer_output_bach_invention4](./img/pianoplayer_output_bach_invention4.png)
 
 ## music xml
 
