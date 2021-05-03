@@ -52,6 +52,10 @@ https://github.com/maxhirsch/Piano-Fingering-Prediction
 
 https://github.com/mpg/pypiano-fingers
 
+https://github.com/blakewest/performer
+
+https://github.com/cuthbertLab/music21/issues/137
+
 ## Datasets
 
 PIG Dataset
