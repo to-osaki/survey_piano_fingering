@@ -61,6 +61,13 @@ https://beam.kisarazu.ac.jp/~saito/research/PianoFingeringDataset/index-ja.html
 してある．運指付けされた部分の典型的な長さは，楽譜 1
 ページ程度で，小節数は約 20，音符数は約 300 である．
 
+> 一部の楽曲には，個人性を調べるために最低 4 人の異なる
+ピアノ演奏者による運指が与えられている．
+
+> PIG データセットの運指は音楽大学ピアノ学科の卒業生
+あるいは 20 年以上のピアノ演奏経験を持つピアノ熟練者
+により与えられたものである．
+
 MAESTRO
 http://createwith.ai/dataset/20181106/1358
 

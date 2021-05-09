@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2021-05-03</encoding-date>
+      <encoding-date>2021-05-09</encoding-date>
       <software>music21 v.5.7.0</software>
     </encoding>
   </identification>
@@ -16,12 +16,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P258e4a9dc2affc0167e6bf8850affecb">
+    <score-part id="Pc8e3222c681845e80bfafbe320ea5fe9">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P258e4a9dc2affc0167e6bf8850affecb">
+  <part id="Pc8e3222c681845e80bfafbe320ea5fe9">
     <!--========================= Measure 1 ==========================-->
     <measure number="1">
       <attributes>
@@ -37,14 +37,14 @@
       </attributes>
       <note>
         <pitch>
-          <step>C</step>
+          <step>G</step>
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
+            <fingering alternate="no" substitution="no">5</fingering>
           </technical>
         </notations>
       </note>
@@ -155,61 +155,6 @@
         <notations>
           <technical>
             <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">4</fingering>
-          </technical>
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
-          </technical>
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
-      </note>
-    </measure>
-    <!--========================= Measure 4 ==========================-->
-    <measure number="4">
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
           </technical>
         </notations>
       </note>
