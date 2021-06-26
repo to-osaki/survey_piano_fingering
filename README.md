@@ -12,9 +12,9 @@
 
 ## pianoplayer
 
-pianoplayerでの生成例
+pianoplayerでの生成例(バッハ インベンション１番)
 
-![pianoplayer_output_bach_invention4](./img/pianoplayer_output_bach_invention4.png)
+![pianoplayer_output_bach_invention1](./img/pianoplayer_output_bach_invention1.png)
 
 ## Reference repositories
 
@@ -86,6 +86,8 @@ https://ameblo.jp/delphinus1024/entry-12365205195.html
 https://miso-soup3.hateblo.jp/entry/2018/12/20/223705
 
 https://naraba.hatenablog.com/entry/20121201/p1
+
+https://qiita.com/iNomaG/items/d9b6506306301a172f6a
 
 ## 参考
 
