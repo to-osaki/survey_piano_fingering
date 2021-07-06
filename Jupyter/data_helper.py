@@ -38,3 +38,35 @@ def convert_fingering_to_PIG(output_path, right_fingering_path, left_fingering_p
             pig.at[i, "_finger"] = str(rights.at[r])
             r += 1
     pig.to_csv(output_path, header=False, index=False, sep = "\t")
+
+def flength(time):
+    """
+    打鍵時間をquarterLengthに変換
+    """
+    threasholds = [0.099, 0.18, 0.30, 0.47, 0.60, 0.81, 1.00, 1.15, 1.30, 1.60, 1.90]
+    lengths     = [0.125, 0.25, 0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50]
+    for i in range(len(threasholds)):
+        if time < threasholds[i]:
+            return lengths[i]
+    return 4 # whole
+
+def fnote(name, t):
+    """
+    音名と打鍵時間からmusic21.Noteを生成
+    """
+    return mu.note.Note(name=name, quarterLength=flength(t))
+
+def appendPIGNotes(stream, pig_notes, noteCallback):
+    """
+    PIGデータをmusic21.Noteに変換してStreamに追加
+    """
+    time = 0.0
+    for i in range(len(pig_notes)):
+        c = pig_notes.iloc[i]
+        if(time < c.t0 and c.t0 - time > 1/32):
+            r = mu.note.Rest(quarterLength=flength(c.t0 - time))
+            stream.append(r)
+        n = fnote(c.note, c.t1 - c.t0)
+        noteCallback(i, n, c)
+        stream.append(n)
+        time = c.t1
