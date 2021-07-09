@@ -20,13 +20,13 @@ def read_fingering(path):
         st = f.read()
     return pd.Series([int(s) for s in re.split("", st) if s != "" and s != "_" and s != "\n"])
 
-def convert_fingering_to_PIG(output_path, right_fingering_path, left_fingering_path, pig_path):
+def convert_fingering_to_PIG(output_path, right_fingering_path, left_fingering_path, template_pig_path):
     """
     数値列のテキスト（左右手別）をPIGデータセットのフォーマットに変換
     """
     rights = read_fingering(right_fingering_path)
     lefts = read_fingering(left_fingering_path)
-    pig = read_PIG(pig_path)
+    pig = read_PIG(template_pig_path)
     pig = pig.drop("finger", axis = 1)
     r = l = 0
     for i in range(len(pig)):
@@ -56,7 +56,7 @@ def fnote(name, t):
     """
     return mu.note.Note(name=name, quarterLength=flength(t))
 
-def appendPIGNotes(stream, pig_notes, noteCallback):
+def appendPIGNotes(stream, pig_notes, noteCallback = None):
     """
     PIGデータをmusic21.Noteに変換してStreamに追加
     """
@@ -67,6 +67,24 @@ def appendPIGNotes(stream, pig_notes, noteCallback):
             r = mu.note.Rest(quarterLength=flength(c.t0 - time))
             stream.append(r)
         n = fnote(c.note, c.t1 - c.t0)
-        noteCallback(i, n, c)
+        if noteCallback is not None:
+            noteCallback(i, n, c)
         stream.append(n)
         time = c.t1
+
+def makeScore(pig):
+    """
+    PIGデータを左右手２パートの楽譜に変換
+    """
+    score = mu.stream.Score()
+    rights = pig[pig.ch == 0]
+    if len(rights) > 0:
+        pr = mu.stream.Part()
+        appendPIGNotes(pr, rights)
+        score.insert(0, pr)
+    lefts = pig[pig.ch == 1]
+    if len(lefts) > 0:
+        pl = mu.stream.Part()
+        appendPIGNotes(pl, lefts)
+        score.insert(0, pl)
+    return score
