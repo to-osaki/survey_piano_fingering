@@ -15,6 +15,7 @@ def read_PIG(path):
 def read_fingering(path):
     """
     数値列のテキストをSeriesとして読み出し
+    czernyR = read_fingering('./data/001-Czerny_fingering_R.txt')
     """
     with open(path) as f:
         st = f.read()
@@ -23,6 +24,11 @@ def read_fingering(path):
 def convert_fingering_to_PIG(output_path, right_fingering_path, left_fingering_path, template_pig_path):
     """
     数値列のテキスト（左右手別）をPIGデータセットのフォーマットに変換
+    convert_fingering_to_PIG(
+        './data/001-Czerny_fingering.csv',
+        './data/001-Czerny_fingering_R.txt', 
+        './data/001-Czerny_fingering_L.txt', 
+        './tmp/PianoFingeringDataset/FingeringFiles/001-1_fingering.txt')
     """
     rights = read_fingering(right_fingering_path)
     lefts = read_fingering(left_fingering_path)
@@ -56,10 +62,11 @@ def fnote(name, t):
     """
     return mu.note.Note(name=name, quarterLength=flength(t))
 
-def appendPIGNotes(stream, pig_notes, noteCallback = None):
+def appendPIGNotes(pig_notes, noteCallback = None):
     """
     PIGデータをmusic21.Noteに変換してStreamに追加
     """
+    stream = mu.stream.Part()
     time = 0.0
     for i in range(len(pig_notes)):
         c = pig_notes.iloc[i]
@@ -71,20 +78,23 @@ def appendPIGNotes(stream, pig_notes, noteCallback = None):
             noteCallback(i, n, c)
         stream.append(n)
         time = c.t1
+    return stream
 
-def makeScore(pig):
+def makeScore(pig, title = "", composer = ""):
     """
     PIGデータを左右手２パートの楽譜に変換
     """
     score = mu.stream.Score()
     rights = pig[pig.ch == 0]
     if len(rights) > 0:
-        pr = mu.stream.Part()
-        appendPIGNotes(pr, rights)
-        score.insert(0, pr)
+        pr = appendPIGNotes(rights)
+        score.insert(pr)
     lefts = pig[pig.ch == 1]
     if len(lefts) > 0:
-        pl = mu.stream.Part()
-        appendPIGNotes(pl, lefts)
-        score.insert(0, pl)
+        pl = appendPIGNotes(lefts)
+        score.insert(pl)
+    if title is not None or composer is not None:
+        score.insert(mu.metadata.Metadata())
+        score.metadata.title = title
+        score.metadata.composer = composer
     return score
