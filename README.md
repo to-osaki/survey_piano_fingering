@@ -10,13 +10,15 @@
 - 曲の時代背景（古典運指など）
 - ミニ鍵盤など鍵盤の大きさによる違い
 
-## pianoplayer
+## References
+
+### pianoplayer
 
 pianoplayerでの生成例(バッハ インベンション１番)
 
 ![pianoplayer_output_bach_invention1](./img/pianoplayer_output_bach_invention1.png)
 
-## Reference repositories
+### Repositories
 
 https://github.com/serenado/PianoFingeringProject
 > implements a more efficient algorithm that forgos "chunks" completely and uses dynamic programming on individual notes instead.
@@ -46,10 +48,11 @@ https://github.com/blakewest/performer
 
 https://github.com/dvdrndlph/pydactyl
 
-## Datasets
+### Datasets
 
 PIG Dataset
 https://beam.kisarazu.ac.jp/~saito/research/PianoFingeringDataset/index-ja.html
+https://statpianofingering.github.io/demo.html
 
 > PIG データセッ
 トは西洋クラシック作曲家のピアノ曲から成り，ピアノ演
@@ -73,42 +76,16 @@ http://createwith.ai/dataset/20181106/1358
 
 > インターネット上のピアノ演奏コンペティション International Piano-e-Competition でのピアニストの演奏を集めることで作成されており...演奏数1,184，曲数430 ものデータが用意されており，ピアノ演奏のデータセットとしては現時点で最大規模のデータセット
 
-## music xml
-
-http://roomba.hatenablog.com/entry/2016/02/03/150354
-
-## music21
+### References
 
 https://github.com/cuthbertLab/music21/issues/137
 
 https://ameblo.jp/delphinus1024/entry-12365205195.html
 
 https://miso-soup3.hateblo.jp/entry/2018/12/20/223705
-
+s
 https://naraba.hatenablog.com/entry/20121201/p1
 
 https://qiita.com/iNomaG/items/d9b6506306301a172f6a
 
-## 参考
-
-### ソフトウェア
-
-ピアノマスターdp
-https://cm.kawai.jp/products/pmdp/
-
-運指レッスン フィンガリ‪ン‬
-https://apps.apple.com/jp/app/%E9%81%8B%E6%8C%87%E3%83%AC%E3%83%83%E3%82%B9%E3%83%B3-%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%AA%E3%83%B3/id942390847
-
-### アニメーション生成
-
-https://www.vice.com/en/article/v7m8xd/watch-these-ai-hands-attempt-to-play-an-unplayable-song-on-the-piano
-
-https://qiita.com/yamatohkd/items/0f5b9b031ec0976d872a
-
-### 録画
-
-https://sairie.com/movie-sp/
-
-https://pf.classicmusic.tokyo/rec/
-
-https://seminar.piano.or.jp/news/2020/06/entry_265.html
+http://roomba.hatenablog.com/entry/2016/02/03/150354
