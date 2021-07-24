@@ -36,21 +36,22 @@ def convert_fingering_to_PIG(output_path, right_fingering_path, left_fingering_p
     pig = pig.drop("finger", axis = 1)
     r = l = 0
     for i in range(len(pig)):
-        finger = pig.iloc[i]["_finger"]
-        if finger.startswith("-"):
+        ch = pig.iloc[i]["ch"]
+        if ch == 1:
             pig.at[i, "_finger"] = "-" + str(lefts.at[l])
             l += 1
         else:
             pig.at[i, "_finger"] = str(rights.at[r])
             r += 1
     pig.to_csv(output_path, header=False, index=False, sep = "\t")
+    return pig
 
 def flength(time):
     """
     打鍵時間をquarterLengthに変換
     """
-    threasholds = [0.099, 0.18, 0.30, 0.47, 0.60, 0.81, 1.00, 1.15, 1.30, 1.60, 1.90]
-    lengths     = [0.125, 0.25, 0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50]
+    threasholds = [0.099, 0.18, 0.34, 0.47, 0.60, 0.81, 1.00, 1.15, 1.30, 1.60, 1.75, 1.90, 2.00, 2.10, 2.20]
+    lengths     = [0.125, 0.25, 0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.25, 3.50]
     for i in range(len(threasholds)):
         if time < threasholds[i]:
             return lengths[i]
@@ -80,18 +81,20 @@ def appendPIGNotes(pig_notes, noteCallback = None):
         time = c.t1
     return stream
 
-def makeScore(pig, title = "", composer = ""):
+def makeScore(pig, title = "", composer = "", ts = "4/4"):
     """
     PIGデータを左右手２パートの楽譜に変換
     """
     score = mu.stream.Score()
     rights = pig[pig.ch == 0]
     if len(rights) > 0:
-        pr = appendPIGNotes(rights)
+        pr = appendPIGNotes(rights, lambda i, n, c: n.addLyric(abs(int(str(c._finger).split("_")[0]))))
+        pr.insert(0, mu.meter.TimeSignature(ts))
         score.insert(pr)
     lefts = pig[pig.ch == 1]
     if len(lefts) > 0:
-        pl = appendPIGNotes(lefts)
+        pl = appendPIGNotes(lefts, lambda i, n, c: n.addLyric(abs(int(str(c._finger).split("_")[0]))))
+        pl.insert(0, mu.meter.TimeSignature(ts))
         score.insert(pl)
     if title is not None or composer is not None:
         score.insert(mu.metadata.Metadata())
