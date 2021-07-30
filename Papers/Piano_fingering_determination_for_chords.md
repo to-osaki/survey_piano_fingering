@@ -50,5 +50,5 @@ https://iss.ndl.go.jp/books/R000000004-I023418205-00
 
 ## 参考
 
-Finding optimal piano fingering
-2000
+Finding optimal piano fingering(2000)
+AUTOMATIC FINGERING SYSTEM(kasimiら 2005)
