@@ -111,6 +111,9 @@ assign the difference between the interval and MaxComf.
 6. Weak-Finger Rule: Assign 1 point every time finger 4 or finger 5 is
 used.
 
+7. Three-Four-Five Rule: Assign 1 point every time fingers 3, 4, and 5
+occur consecutively in any order, even when groups overlap.
+
 8. Three-to-Four Rule: Assign 1 point each time finger 3 is
 immediately followed by finger 4.
 
