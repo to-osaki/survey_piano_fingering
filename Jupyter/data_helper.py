@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import numpy as np
 import music21 as mu
+from music_helper import *
 
 def read_PIG(path):
     """
@@ -9,7 +10,10 @@ def read_PIG(path):
     """
     names = ["id", "t0", "t1", "note", "_n", "_v", "ch", "_finger"]
     table = pd.read_table(path, names = names, skiprows = 1)
-    table["finger"] = table["_finger"].apply(lambda s: abs(int(str(s).split("_")[0])))
+    table["fingers"] = table["_finger"].apply(lambda s: [abs(int(n)) for n in str(s).split("_")])
+    table["finger"] = table["fingers"].apply(lambda s: s[0])
+    table["midi"] = table["note"].apply(lambda n: mu.note.Note(n).pitch.midi)
+    table["pos"] = table["midi"].apply(lambda midi: key_pos(midi))
     return table
 
 def read_fingering(path):
