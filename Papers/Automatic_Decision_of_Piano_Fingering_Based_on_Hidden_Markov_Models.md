@@ -1,4 +1,4 @@
-# HMM を用いたピアノ運指自動決定アルゴリズム
+# 隠れマルコフモデルに基づくピアノ運指の自動決定
 
 http://hil.t.u-tokyo.ac.jp/research/introduction/PianoFingering/japanese.html
 2006/3

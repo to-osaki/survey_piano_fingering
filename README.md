@@ -25,8 +25,12 @@ https://github.com/serenado/PianoFingeringProject
 
 > The new algorithm also incorporates hand resets when there is a long enough rest between notes and also a long enough distance (> 7 half steps). In the future, a more complex method could be implemented to determine when hand resets should occur.
 
-https://github.com/marcomusy/pianoplayer
+> 1. Create table of comfort scores for a pair of notes
+> 2. Split each part into smaller chunks
+> 3. Generate potential fingerings for each chunk
+> 4. Stitch chunks together and find the most comfortable fingering
 
+https://github.com/marcomusy/pianoplayer
 指同士の距離をスケールすることで手の大きさに対してアプローチがある
 ```
 self.hf = utils.handSizeFactor(size)
@@ -35,18 +39,16 @@ if self.frest[i]: self.frest[i] *= self.hf
 指への重み付け、黒鍵の押しやすさといった少ないパラメータから計算している
 
 https://github.com/Guwalgiya/Piano-Fingering-Generators
-
 ルールベース、LSTMなど複数の手法の実装例
 
-https://github.com/maxhirsch/Piano-Fingering-Prediction
-
-RNNによる実装例
-
 https://github.com/mpg/pypiano-fingers
+音階運指の研究
 
 https://github.com/blakewest/performer
+コストに基づく手法
 
 https://github.com/dvdrndlph/pydactyl
+> Python framework for piano fingering models.
 
 ### Datasets
 
