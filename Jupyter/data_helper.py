@@ -10,8 +10,8 @@ def read_PIG(path):
     """
     names = ["id", "t0", "t1", "note", "_n", "_v", "ch", "_finger"]
     table = pd.read_table(path, names = names, skiprows = 1)
-    # 指替えの場合 アンダーバー繋ぎの数値が入っている
-    table["fingers"] = table["_finger"].apply(lambda s: [abs(int(n)) for n in str(s).split("_")])
+    # 指替えの場合 アンダーバー繋ぎの数値が入っているため、これを配列にする
+    table["fingers"] = table["_finger"].apply(lambda s: [int(n) for n in str(s).split("_")])
     table["finger"] = table["fingers"].apply(lambda s: s[0])
     table["midi"] = table["note"].apply(lambda n: mu.note.Note(n).pitch.midi)
     table["pos"] = table["midi"].apply(lambda midi: key_pos(midi))
@@ -47,7 +47,7 @@ def convert_fingering_to_PIG(output_path, right_fingering_path, left_fingering_p
     r = l = 0
     for i in range(len(pig)):
         ch = pig.iloc[i]["ch"]
-        if ch == 1:
+        if ch == 1: # 左手はマイナス値で保存
             pig.at[i, "_finger"] = "_".join([str(-n) for n in lefts[l]])
             l += 1
         else:
@@ -73,9 +73,6 @@ def fnote(name, t):
     """
     return mu.note.Note(name=name, quarterLength=flength(t))
 
-def appendPIGNotes(pig_notes, noteCallback):
-    appendPIGNotes(pig_notes, 0.0, noteCallback)
-
 def appendPIGNotes(pig_notes, offset, noteCallback):
     """
     PIGデータをmusic21.Noteに変換してStreamに追加
@@ -87,11 +84,12 @@ def appendPIGNotes(pig_notes, offset, noteCallback):
         if(time < c.t0 and c.t0 - time > 1/32):
             r = mu.note.Rest(quarterLength=flength(c.t0 - time))
             stream.append(r)
-        n = fnote(c.note, c.t1 - c.t0)
+        n = fnote(c.note, c.t1 - c.t0 - offset)
         if noteCallback is not None:
             noteCallback(i, n, c)
         stream.append(n)
         time = c.t1
+        offset = 0.0
     return stream
 
 def makeScore(pig, title = "", composer = "", ts = "4/4", offset = 0.0):
