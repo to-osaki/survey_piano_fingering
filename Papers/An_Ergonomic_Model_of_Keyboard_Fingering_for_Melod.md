@@ -134,6 +134,19 @@ the immediately following key is white, assign 2 further points.
 Assign 3 points if the lower note is white, played by a finger other
 than the thumb, and the upper is black, played by the thumb.
 
+1. 無理なく広げられる/縮められる距離よりも広い/狭い運指には２点を加える
+2. MinRelよりも狭い運指には、親指を含む場合は１点、それ以外には２点を加える
+3. MaxRelよりも広い運指には、親指を含む場合は１点、それ以外には２点を加える
+4. 指くぐりや跳躍によるポジション移動を伴う場合、手の位置が完全に移動する場合は２点、それ以外には１点を加える。
+5. MinComfよりも狭い音域でポジション移動が生じた場合、音域からMinComfを減じた点を加える。
+6. ４指か５指を使った場合１点を加算する
+7. ３，４，５指を連続で用いた場合（順不同）、１点を加える
+8. ３指の次に４指が来た場合、１点を加える
+9. 白鍵上の３指と黒鍵上の４指が連続した場合、１点を加える
+10. １指で黒鍵を弾いた場合、１点を加える。直前が白鍵であった場合は２点、直後が白鍵である場合は２点を、更に加える。
+11. ５指で黒鍵を弾いた場合、直前が白鍵であった場合は２点、直後が白鍵である場合は２点を加える。
+12. 指くぐりに１点を加える。白鍵を弾いた状態で親指が黒鍵を弾く指くぐりには３点を加える。
+
 これらのルールから各運指の点数difficulty valueを求める
 
 > The algorithm described earlier can only be applied to relatively short
