@@ -24,8 +24,8 @@ def note_gray(g):
     return "#{:02x}{:02x}{:02x}".format(g, g, g)
 
 # return ["寄せ", "拡げ", "潜り", "超え", "その他"]
-def getMoveTypeByPIGNote(n, n_):
-    if n.t0 == n_.t0:
+def getMoveTypeByPIGNote(n, n_, ignoreChords):
+    if ignoreChords and abs(n.t0 - n_.t0) < 0.01:
         return 4
     return getMoveType(n.fingers, n_.fingers, n.pos, n_.pos)
 
@@ -37,19 +37,23 @@ def getMoveType(fingers, fingers_prev, pos, pos_prev):
     pd_ = (pos - pos_prev) * sign
     fd_ = (fng - fng_prev) * sign
     move = 4
+    thumb = abs(fng) == 1 or abs(fng_prev) == 1
     # 替え指
     if len(fingers) > 1:
         move = 0
     # 鍵盤上の距離より、指番号の差の方が大きい＝指寄せ
     elif np.sign(pd_) == np.sign(fd_) and abs(pd_) < abs(fd_) - 0.5:
         move = 0
-    # 鍵盤上の距離より、指番号の差の方が小さい
-    elif np.sign(pd_) == np.sign(fd_) and abs(pd_) > abs(fd_) + 0.5:
+    # 鍵盤上の距離より、指番号の差の方が小さい=拡げ
+    elif np.sign(pd_) == np.sign(fd_) and abs(pd_) > abs(fd_) + (1.5 if thumb else 0.5):
         # if abs(fng) != 1 and abs(fng_prev) != 1 and abs(fng) != 5 and abs(fng_prev) != 5:
+        # if pd < (6 if thumb else 5)
             move = 1
     # 指くぐり、指超え
     elif np.sign(pd_) != np.sign(fd_):
-        if np.sign(pd_) >= 0 and abs(fng) == 1:
+        if fd_ == 0:
+            move = 1
+        elif np.sign(pd_) >= 0 and abs(fng) == 1:
             move = 2
         elif np.sign(pd_) <= 0 and abs(fng_prev) == 1:
             move = 3
